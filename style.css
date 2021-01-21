@@ -1,0 +1,49 @@
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* hiding checkbox */
+input[type='checkbox'] {
+	display: none;
+}
+
+/* creating slider base and knob */
+
+label {
+	cursor: pointer;
+	text-indent: -999px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(241, 176, 195, 0.856);
+	border-radius: 25px;
+	position: relative;
+	transition: all 0.4s ease-out;
+}
+
+label::after {
+	content: '';
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	background-color: rgb(165, 163, 163);
+	top: 5px;
+	left: 8px;
+	border-radius: 50%;
+
+	transition: all 0.4s ease-out;
+}
+
+/* create style for checked state */
+
+input:checked + label {
+	background-color: rgb(238, 42, 101);
+}
+
+input:checked + label::after {
+	background-color: rgb(66, 1, 15);
+	/* translate 3d for video acceleration - by the gpu instead of cpu for smoother tranlations*/
+	transform: translate3d(55px, 0, 0);
+}
